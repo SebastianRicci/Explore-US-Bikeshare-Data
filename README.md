@@ -2,6 +2,7 @@
 Using Python to explore data related to bike share systems for three major cities in the United States — Chicago, New York City, and Washington. Bicycle-sharing systems allow users to rent bicycles on a very short-term basis for a determined price. Thanks to the rise in data science we can obtain a great deal of data from each users’ trip, meaning we can explore how these bike-sharing systems are used and how we can improve upon them.
 ###### 13/09/2020
 
+![Divvy bicycle sharing system in Chicago](https://video.udacity-data.com/topher/2018/March/5aa7718d_divvy/divvy.jpg)
 
 ### Description
 Wrote Python code that imports each cities data with CSV files. The script takes raw input from the user to create an interactive experience in the terminal to compute and present descriptive statistics.
@@ -22,6 +23,8 @@ The Chicago and New York City files also have the following two columns:
 
 * Gender
 * Birth Year
+
+![Data sample from New York City dataset](https://video.udacity-data.com/topher/2018/March/5aa771dc_nyc-data/nyc-data.png)
 
 ### Statistics Computed
 * Popular times of travel
