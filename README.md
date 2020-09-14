@@ -8,7 +8,7 @@ Using Python to explore data related to bike share systems for three major citie
 Wrote Python code that imports each cities data with CSV files. The script takes raw input from the user to create an interactive experience in the terminal to compute and present descriptive statistics.
 
 ### Datasets
-All data was provided by Motivate, a bike share system provider for many major cities in the United States, to uncover bike share usage patterns. The data shown corresponds to the first six months of 2017 for all three cities.
+All data was provided by [Motivate](https://www.motivateco.com/), a bike share system provider for many major cities in the United States, to uncover bike share usage patterns. The data shown corresponds to the first six months of 2017 for all three cities.
 
 All three cities contain the same core six (6) columns:
 
