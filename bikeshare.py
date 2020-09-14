@@ -156,14 +156,14 @@ def user_stats(df):
     user_types = df['User Type'].value_counts()
     print('\nUser Types: ',user_types)
 
-    # Display counts of gender
+    # Display counts of gender (Only available for Chicago and New York City files)
     try:
         user_genders = df['Gender'].value_counts()
         print('\nUser genders: ',user_genders)
     except KeyError:
         print('\nNo gender information in this city')
 
-    #Display earliest, most recent, and most common year of birth
+    #Display earliest, most recent, and most common year of birth (Only available for Chicago and New York City files)
     try:
         earliest_birth_year = df['Birth Year'].min()
         latest_birth_year = df['Birth Year'].max()
