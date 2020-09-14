@@ -23,7 +23,7 @@ def get_filters():
             break
         else:
             print('\n Please input a valid city.\n')
-                  
+
     # Get user input for month (all, january, february, ... , june)
     while True:
         month = input('\nWould you like to filter the data by month(From January to June)?If not just type "all"\n').title()
@@ -31,16 +31,16 @@ def get_filters():
             break
         else:
             print('\nPlease input a valid month from January to June. Type "all" if you do not have any preference.\n')
-            
-      
+
+
 
     # Get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
-        day = input('\nWould you like to filter by day? You can choose from Monday to Sunday or just type "all" if you have no preference\n').title()              
+        day = input('\nWould you like to filter by day? You can choose from Monday to Sunday or just type "all" if you have no preference\n').title()
         if day in ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday','All']:
             break
         else:
-            print('\n Pleas input a valid day of the week or type "all" if you have no preference.\n')             
+            print('\n Pleas input a valid day of the week or type "all" if you have no preference.\n')
     print('-'*40)
     return city, month, day
 
@@ -58,15 +58,15 @@ def load_data(city, month, day):
     """
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
+
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
-    
+
     # filter by month if applicable
     if month != 'All':
         # use the index of the months list to get the corresponding int
@@ -121,7 +121,7 @@ def station_stats(df):
 
     # Display most frequent combination of start station and end station trip
     popular_station_combinations = df.groupby(['Start Station','End Station']).size().idxmax()
- 
+
     print('\n The most common station combination is:\n ',popular_station_combinations)
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -136,7 +136,7 @@ def trip_duration_stats(df):
     # Display total travel time
     total_travel_time = df['Trip Duration'].sum()
     print('\nTotal travel time: ',total_travel_time)
-    
+
 
     # TO DO: display mean travel time
     mean_travel_time = df['Trip Duration'].mean()
@@ -156,14 +156,14 @@ def user_stats(df):
     user_types = df['User Type'].value_counts()
     print('\nUser Types: ',user_types)
 
-    # Display counts of gender
+    # Display counts of gender (Only available for Chicago and New York City files)
     try:
         user_genders = df['Gender'].value_counts()
         print('\nUser genders: ',user_genders)
     except KeyError:
         print('\nNo gender information in this city')
 
-    #Display earliest, most recent, and most common year of birth
+    #Display earliest, most recent, and most common year of birth (Only available for Chicago and New York City files)
     try:
         earliest_birth_year = df['Birth Year'].min()
         latest_birth_year = df['Birth Year'].max()
@@ -179,6 +179,7 @@ def user_stats(df):
     print('-'*40)
 
 def display_data(df):
+    """ Shows trip data in rows of five if user chooses to do so."""
     start_loc = 0
     view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
     while view_data == 'yes':
@@ -186,7 +187,7 @@ def display_data(df):
         start_loc += 5
         view_display = input('Do you wish to continue?: ').lower()
         view_data=view_display
-    
+
 def main():
     while True:
         city, month, day = get_filters()
