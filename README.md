@@ -46,12 +46,12 @@ The Chicago and New York City files also have the following two columns:
   * Counts of each gender (only available for NYC and Chicago)
   * Earliest, most recent, most common year of birth (only available for NYC and Chicago)
 
-### Software Requirements
+#### Software Requirements
 To complete this project, the following software requirements apply:
 
 * You should have Python 3, NumPy, and pandas installed using Anaconda
 * A text editor, like Sublime or Atom.
 * A terminal application (Terminal on Mac and Linux or Cygwin on Windows).
 
-### Credits
+#### Credits
 Special thanks to Udacity and its mentors for helping throughout the course and teaching assignments.
